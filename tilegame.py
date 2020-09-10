@@ -103,10 +103,10 @@ class TileGame:
 
 
     def get_grid(self):
-        return json.dumps(self.grid)
+        return self.grid
     
     def get_player_data(self):
-        return json.dumps(self.player_data)
+        return self.player_data
     
     def get_scores(self):
         return json.dumps([[key, self.player_data[key]['points']] for key in self.player_data])

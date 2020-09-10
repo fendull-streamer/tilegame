@@ -1,7 +1,7 @@
 import requests
 import json
 
-GAME_URL = "http://localhost:8000/"
+GAME_URL = "https://1k7c2ivnwa.execute-api.us-west-2.amazonaws.com/"
 ACCESS_TOKEN_FILE = "access_token.txt"
 
 class TileGameClient:
@@ -28,6 +28,8 @@ class TileGameClient:
             self.access_code = json.loads(r.content)['access_token']
             with open(ACCESS_TOKEN_FILE, "w") as f:
                 f.write(self.access_code)
+            return True
+        return False
 
 
     def get_status(self):
@@ -43,8 +45,9 @@ class TileGameClient:
             print("Access code required, please join game")
             return
         r = requests.get(GAME_URL + "respond?response={}&access_token={}".format('{}', self.access_code))
-        print(r.content)
-        return json.loads(r.content)
+        if r.status_code == 200:
+            return json.loads(r.content)
+        return None
 
     def set_state(self, state):
         r = requests.get(GAME_URL + "state?id_token={}&state={}".format(self.id_token, state))
