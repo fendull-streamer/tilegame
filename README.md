@@ -21,3 +21,23 @@ Open terminal/command prompt and run ```pip install requests```
 
 ### Clone this repository
 Navigate to a folder within Command prompt/terminal that you want to use this code in. Use the command ```git clone https://github.com/fendull-streamer/tilegame.git``` to copy this repository to your local machine. If you're not sure how to navigate a terminal, see [here](https://www.vikingcodeschool.com/web-development-basics/a-command-line-crash-course)
+
+### (Optional) Download and install a text editor
+Some great options are VSCode, Atom, or Sublime text. Having a text editor other than Notepad makes editing code much nicer.
+
+
+## Getting started
+Follow these steps in order to actually play the game.
+
+### Obtain your Id_Token
+First, go to [Fendull.com](https://fendull.com/code) to obtain an id token. Copy the token to the clipboard. Change the value of ID_TOKEN in the file play_tile_game.py to the copied id token.
+
+### Start python
+Open a terminal/cmd prompt and navigate to the tilegame directory. In there, run the following command:
+```python -i play_tile_game.py```
+
+This will execute the play_tile_game.py script and then start an interpreter.
+
+### Respond to questions
+To respond to a question, type:
+```client.respond(<Your answer>)```
